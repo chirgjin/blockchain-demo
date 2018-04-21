@@ -1,0 +1,27 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "Simple BlockChain demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chirgjin/blockchain-demo.git"
+  },
+  "author": "chirgjin <chirgjin@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chirgjin/blockchain-demo/issues"
+  },
+  "homepage": "https://github.com/chirgjin/blockchain-demo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "expressjs": "^1.0.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "require-directory": "^2.1.1"
+  }
+}
