@@ -24,6 +24,10 @@ class BlockChain {
         return this.blocks[ this.blocks.length - 1 ];
     }
 
+    get valid() {
+        return this.verify();
+    }
+
     verify() {
 
         for(let i=this.blocks.length-1;i>0;i--) {
@@ -62,6 +66,11 @@ class BlockChain {
             blocks[i] = this.blocks[i].export();
 
         return blocks;
+
+        return {
+            blocks : blocks,
+            valid  : this.valid
+        };
     }
 
     toJSON() {
