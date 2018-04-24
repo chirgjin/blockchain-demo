@@ -1,4 +1,5 @@
-let block = require("./block");
+let block = require("./block"),
+util      = require("util");
 
 class BlockChain {
 
@@ -19,7 +20,7 @@ class BlockChain {
         }
     }
 
-    getLast() {
+    get last() {
         return this.blocks[ this.blocks.length - 1 ];
     }
 
@@ -36,11 +37,15 @@ class BlockChain {
         return 1;
     }
 
-    addBlock(data,mine=true) {
+    addBlockClass(block) {
+        this.blocks.push(block);
+    }
 
-        let last = this.getLast() , prevHash = last.hash , id = last.id;
+    addBlock(data,nonce=null,mine=true) {
 
-        let bl = new block(id+1,data,prevHash,0);
+        let last = this.last , prevHash = last.hash , id = last.id;
+
+        let bl = new block(id+1,data,prevHash,nonce);
 
         if(mine)
             bl.mine();
@@ -50,6 +55,22 @@ class BlockChain {
         return bl;
     }
 
+    export() {
+        let blocks = [];
+
+        for(let i in this.blocks)
+            blocks[i] = this.blocks[i].export();
+
+        return blocks;
+    }
+
+    toJSON() {
+        return this.export();
+    }
+
+    [util.inspect.custom]() {
+        return this.export();
+    }
 };
 
 module.exports = BlockChain;

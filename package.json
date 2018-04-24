@@ -4,7 +4,9 @@
   "description": "Simple BlockChain demo",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "start": "node app",
+    "debug": "SET NODE_DEBUG=blockChainApp&&npm start"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "path": "^0.12.7",
-    "require-directory": "^2.1.1"
+    "require-directory": "^2.1.1",
+    "util": "^0.10.3"
   }
 }

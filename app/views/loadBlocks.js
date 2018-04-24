@@ -1,7 +1,10 @@
 
 function loadBlocks(req,res) {
-    console.log(this);
-    res.send(this.ip);
+    let peer = this.peer(req.params.peer_id);
+    res.send({
+        status    : "success",
+        peerChain : peer.export()
+    });
 }
 
 module.exports = loadBlocks;

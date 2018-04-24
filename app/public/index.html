@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script src='//code.jquery.com/jquery.min.js' ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/sha256.min.js"></script>
+        <script src="block.js"></script>
+        <title>BlockChain</title>
+    </head>
+    <body>
+
+        <form method=post action=/create >
+            Peer Id : <input type="text" value="root" id="peer"> <br>
+            Data    : <textarea name="data" id="data" cols="30" rows="10"></textarea><br>
+            Nonce   : <input type=number id=nonce  /><br>
+            prevhash: <input id='prevHash' disabled placeholder="Loading"/><br>
+            Id      : <input id='id' disabled placeholder=Loading /><br>
+            <button id=mine >Mine</button>
+            <input type="submit">
+        </form>
+
+        <script>
+            $("form").submit( evt => {
+                evt.preventDefault();
+                
+                let data =  JSON.parse($("#data").val()) , nonce = $("#nonce").val() , peer = $("#peer").val();
+
+                $.post("/create", { data : data , nonce : nonce , peer_id : peer } , (resp) => {
+                    console.log(resp);
+
+                    $("#peer").change();
+                });
+                
+            });
+
+            $("#peer").change( () => {
+
+                 $("#prevHash,#id").val('');
+
+                $.getJSON(`/load/${$("#peer").val()}`, (resp) => {
+                    let last = resp.peerChain[ resp.peerChain.length - 1];
+                    $("#prevHash").val(last.hash);
+                    $("#id").val(last.id+1);
+                });
+            }).trigger("change");
+
+            $("#mine").click( (evt) => {
+
+                evt.preventDefault();
+
+                let data =  JSON.parse($("#data").val()) , nonce = $("#nonce").val() , peer = $("#peer").val() , pHash = $("#prevHash").val();
+
+                let bl = new Block( $("#id").val() , data , pHash , nonce );
+
+                bl.asyncMine().then( () => {
+                    $("#nonce").val(bl.nonce);
+                    console.log(bl);
+                });
+
+
+                alert("Done");
+
+            });
+        </script>
+    </body>
+</html>

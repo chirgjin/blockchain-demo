@@ -1,5 +1,4 @@
-let crypto = require("crypto"),
-startingZeros = "000";
+let startingZeros = "000";
 
 class Block {
 
@@ -12,7 +11,7 @@ class Block {
     }
 
     get hash() {
-        return (this._hash = crypto.createHash("sha256").update( JSON.stringify([this.id,this.data,this.prevHash,this.nonce]) ).digest("hex"));
+        return (this._hash = CryptoJS.SHA256( JSON.stringify([this.id,this.data,this.prevHash,this.nonce]) ).toString());
     }
 
     get valid() {
@@ -58,7 +57,7 @@ class Block {
             data     : this.data,
             nonce    : this.nonce,
             prevHash : this.prevHash,
-            valid    : this.valid,
+            valid    : this.valid
         };
     }
 
@@ -66,5 +65,3 @@ class Block {
         return this.export();
     }
 }
-
-module.exports = Block;
