@@ -15,7 +15,7 @@ class BlockChain {
         }
         else {
             for(let i=0;i<copy.length;i++)
-                this.blocks.push(copy[i]);
+                this.blocks.push(copy[i].copy());
         }
     }
 

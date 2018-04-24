@@ -46,6 +46,10 @@ class Block {
             t.mine(resolve);
         });
     }
+
+    copy() {
+        return new Block(this.id,this.data,this.prevHash,this.nonce);
+    }
 }
 
 module.exports = Block;
