@@ -1,4 +1,4 @@
-let 
+let
 fs         = require("fs"),
 crypto     = require("crypto"),
 path       = require("path"),
@@ -21,14 +21,14 @@ class blockChainApp {
         this.ip    = ip;
 
         this.logLevel = 0;
-        this.debuglog = util.debuglog("blockChainApp");
+        this.debuglog = console.log || util.debuglog("blockChainApp");
 
         this.createExpressApp();
         this.startServer();
     }
 
     startServer() {
-        
+
         this.server = http.createServer(this.app);
 
         this.server.listen(this.port,this.ip);
@@ -74,9 +74,9 @@ class blockChainApp {
     peer(id) {
 
         if(!this.peers[id]) {
-            this.peers[id] = new BlockChain(id);
+            this.peers[id] = new BlockChain(id,this.peers.root);
         }
-        
+
         return this.peers[id];
     }
 
@@ -97,7 +97,7 @@ class blockChainApp {
         let _this = this , peers = this.peers;
 
         return new Promise((resolve,reject) => {
-            
+
             Object.keys(peers).forEach( key => {
                 let peer = peers[key];
 
@@ -122,9 +122,9 @@ class blockChainApp {
 
             return resolve(_this);
         });
-        
+
     }
-    
+
 };
 
 let app = new blockChainApp();
