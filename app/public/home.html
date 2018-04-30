@@ -1,362 +1,191 @@
+<!DOCTYPE html>
 
-	<!DOCTYPE html>
+<head>
+	<title>BlockChain App</title>
 
-	<head>
-		<title>Test Block</title>
+	<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-		<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-		<style>
-			/* Basic Style
-	* --------------------------------------- */
-			body,
-			div,
-			dl,
-			dt,
-			dd,
-			ul,
-			ol,
-			li,
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
-			pre,
-			form,
-			fieldset,
-			input,
-			textarea,
-			p,
-			blockquote,
-			th,
-			td,
-			a{
-				padding: 0;
-				margin: 0;
-				font-family: "Antic Slab", serif;
-			}
-			/* Lazy Load */
-			img {
-				opacity: 1;
-				transition: opacity 0.3s;
-			}
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-			img[data-src] {
-				opacity: 0;
-			}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 
-			/* Navigation Color
-	* --------------------------------------- */
+</head>
 
-			#fp-nav ul li a span,
-			.fp-slidesNav ul li a span {
-				background: #fff;
-			}
+<body>
 
-			/* Canvas
-	* --------------------------------------- */
-
-			canvas {
-				width: 100%;
-			}
-			a {
-				color: #fff;
-			}
-
-			h1 {
-				font-size: 5em;
-				color: #fff;
-				margin: 0;
-
-			}
-
-			/* Backgrounds will cover all the section
-	* --------------------------------------- */
-
-			#section0,
-			#section1,
-			#section2,
-			#section3 {
-				background-size: cover;
-			}
-
-			/* Defining each sectino background and styles
-	* --------------------------------------- */
-
-			#section0 {
-				background: url("http://ak1.picdn.net/shutterstock/videos/2048561/thumb/1.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-
-			#section1 {
-				background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vd3bj2jPe/water-drops-on-glass-after-rain-water-droplets-on-glass-in-blue-color-shiny-droplets-shimmering-drops-on-glass-at-night-abstract-background-droplet-background-rain-drops-on-glass-surface_hdss2ak8__F0000.png");
-				text-align: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position-y: -104px;
-			}
-
-			#section2 {
-				background: #232323 url("imgs/bg3.jpg");
-				padding: 6% 0 0 0;
-			}
-
-			#section2 h1 {
-				color: #000;
-			}
-
-			#section3 {
-				background: #232323 url("imgs/bg4.jpg");
-				padding: 6% 0 0 0;
-			}
-
-			#heading1 {
-				overflow: hidden;
-				position: absolute;
-				z-index: 9999;
-				width: 50%;
-				top: 27%;
-				left: 28%;
-				font-size: 8em;
-				font-weight: 400;
-				font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-				text-shadow: 0 0 8px #03A9F4;
-			}
-
-			/*Adding background for the slides
-	* ---------------------------------------
-	#slide1{
-		background-image: url(imgs/bg2.jpg);
-		padding: 6% 0 0 0;
-	}
-	#slide2{
-		background-image: url(imgs/bg5.jpg);
-		padding: 6% 0 0 0;
-	}*/
-
-			.topnav {
-				overflow: hidden;
-				background-size: cover;
-				position: absolute;
-				background: #00000026;
-				width: auto;
-				top: 2%;
-				left: 2%;
-			}
-
-			.topnav a {
-				float: left;
-				display: block;
-				color: #10cdea;
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-				font-size: 17px;
-			}
-
-			.topnav a:hover {
-				background-color: #1e1e1ed1;
-				color: whitesmoke;
-				text-shadow: 0 0 25px #03A9F4;
-			}
-
-			.img-fluid {
-				max-width: 100%;
-				height: auto;
-			}
-
-			.header-right {
-				float: right;
-			}
-			.card {
-				background: #fff;
-				border-radius: 2px;
-				display: inline-block;
-				height: 300px;
-				margin: 1rem;
-				position: relative;
-				width: 300px;
-		}
-			.card-1 {
-				box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-				transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-		}
-			.card-1:hover {
-				box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
-		</style>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" />
-
-	</head>
-
-	<body>
-
-		<div id="fullpage">
-			<div class="section" id="section0">
-				<div class="blur"></div>
-				<canvas id="canvas"></canvas>
-				<!-- Static Menu -->
-				<div class="topnav" id="myTopnav">
-					<a class="active" href="#firstPage/0">Home</a>
-					<a href="#secondPage/2">Blog</a>
-					<a href="#">Schedule</a>
-					<a href="#thirdPage/3">About us</a>
-					<a href="#fourthPage/4">Contact</a>
-					<!--<div class="header-right">
-						<img class="img-fluid md-2 " data-src="https://steemit-production-imageproxy-upload.s3.amazonaws.com/DQmUyX4vcdk1EPidWN2awdMKnK38yxfmv4sS3t1VgfmChzk" alt="logo" height="50" width="130" style="padding-top:10px;">
-					</div>-->
-				</div>
-				<!-- End Menu-->
-				<h1 id="heading1">BlockChain</h1>
-			</div>
-
-			<div class="section" id="section1">
-				<div class="card card-1"></div>
-
+	<div id="fullpage">
+		<div class="section" id="section0">
+			<div class="blur"></div>
+			<canvas id="canvas"></canvas>
+			<!-- Static Menu -->
+			<div class="topnav" id="myTopnav">
+				<a class="active" href="#firstPage/0">Home</a>
+				<a href="#secondPage/2">Create Block</a>
+				<a href="#thirdPage/3">View Chain</a>
+				<a href="#fourthPage/4">View Peers</a>
 
 			</div>
+			<!-- End Menu-->
+			<h1  class="header" id="heading1">BlockChain<br>
+							<i class="material-icons large">swap_calls</i></h1>
 
-			<div class="section" id="section2">Some section
-				<h1><a href="#secondPage/2">Go to page 2</a></h1>
-			</div>
 
-			<div class="section" id="section3">Some section</div>
 		</div>
 
+		<div class="section" id="section1">
+							<div class="container">
+								<div class="row">
+										<h3 class="header">Create Block</h3>
+									<div class="col s12 m8 offset-m1 xl7 offset-xl1">
+								<div class="row">
+									<form class="col s12">
+											<div class="input-field col s12">
+												<input placeholder="root" id="root" type="text" class="validate">
+												<label for="peer">Peer Id</label>
+											</div>
+											<div class="input-field col s12">
+												<textarea id="textarea1" class="materialize-textarea"></textarea>
+												<label for="textarea1">Data</label>
+											</div>
+											<div class="input-field col s12">
+												<input id="nonce" type="text" class="validate">
+												<label for="nonce">Nonce</label>
+											</div>
+											<div class="input-field col s12">
+												<input disabled value="0000003pxsfdajsn" id="disabled" type="text" class="validate">
+												<label for="disabled">Previous Hash</label>
+											</div>
+											<div class="input-field col s12">
+												<input disabled value="007" id="disabled" type="text" class="validate">
+												<label for="disabled">ID</label>
+											</div>
+											<div class="input-field col s6">
+													<button class="btn-large waves-effect waves-light" type="submit" name="action">Mine
+																	 <i class="material-icons right">settings</i>
+													</button>
+											</div>
+											<div class="input-field col s6">
+													<button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+																	 <i class="material-icons right">send</i>
+													</button>
+											</div>
+									</form>
+								</div>
+								</div>
+								</div>
+							</div>
+		</div>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<div class="section" id="section2">
+			<div class="container">
+										<h3 class="header">View Blockchain</h3>
+											<div class="row">
+													<!-- Card Starts -->
+														<div class="card horizontal">
+															<div class="card-image waves-effect waves-block waves-light">
+																<img class="activator" src="http://www.jraulfernandez.es/wp-content/uploads/2015/05/Crowdfunding.jpg" height="250px">
+															</div>
+															<div class="card-content">
+																<span class="card-title activator grey-text text-darken-4">Block ID #1<i class="material-icons right">more_vert</i></span>
+																<p><a class="activator" href="#">View Information</a></p>
+															</div>
+															<div class="card-reveal">
+																<span class="card-title grey-text text-darken-4">Block ID #1<i class="material-icons right">close</i></span>
+																<p>data(json).</p>
+																<p>nonce(int).</p>
+																<p>prevHash(sha256 hash).</p>
+																<p>hash(sha256 hash).</p>
+															</div>
+														</div>
+														<!-- Card ends -->
+														<!-- Card Starts -->
+														<div class="card horizontal">
+															<div class="card-image waves-effect waves-block waves-light">
+																<img class="activator" src="http://www.jraulfernandez.es/wp-content/uploads/2015/05/Crowdfunding.jpg" height="250px">
+															</div>
+															<div class="card-content">
+																<span class="card-title activator grey-text text-darken-4">Block ID #1<i class="material-icons right">more_vert</i></span>
+																<p><a class="activator" href="#">View Information</a></p>
+															</div>
+															<div class="card-reveal">
+																<span class="card-title grey-text text-darken-4">Block ID #1<i class="material-icons right">close</i></span>
+																<p>data(json).</p>
+																<p>nonce(int).</p>
+																<p>prevHash(sha256 hash).</p>
+																<p>hash(sha256 hash).</p>
+															</div>
+														</div>
+														<!-- Card ends -->
+											</div>
+				</div>
+		</div>
 
-		<!-- This following line is optional. Only necessary if you use the option css3:false and you want to use other easing effects rather than "linear", "swing" or "easeInOutCubic". -->
-		<script src="vendors/jquery.easings.min.js"></script>
+		<div class="section" id="section3">
+								<div class="container">
+								 <h3 class="header">View Peerlist</h3>
+					<ul class="collection">
+									<li class="collection-item avatar">
+										<img src="https://www.ibm.com/blogs/bluemix/wp-content/uploads/2016/10/IBM_Blockchain_Hero-1.png" alt="" class="circle">
+										<span class="title">Peer ID</span>
+										<p>Peer Name <br>
+											 Blockchain
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">computer</i></a>
+									</li>
+									<li class="collection-item avatar">
+										<img src="https://www.ibm.com/blogs/bluemix/wp-content/uploads/2016/10/IBM_Blockchain_Hero-1.png" alt="" class="circle">
+										<span class="title">Peer ID</span>
+										<p>Peer Name <br>
+											 Blockchain
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">computer</i></a>
+									</li>
+									<li class="collection-item avatar">
+										<img src="https://www.ibm.com/blogs/bluemix/wp-content/uploads/2016/10/IBM_Blockchain_Hero-1.png" alt="" class="circle">
+										<span class="title">Peer ID</span>
+										<p>Peer Name <br>
+											 Blockchain
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">computer</i></a>
+									</li>
+								</ul>
+											</div>
+		</div>
+	</div>
 
-		<!-- This following line is only necessary in the case of using the option `scrollOverflow:true` -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.min.js"></script>
 
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js"></script>
-		<script>
-			//fullpage.js
-			$(document).ready(function() {
-				$('#fullpage').fullpage({
-					anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
-					navigation: true,
-					navigationPosition: 'right',
-					navigationTooltips: ['First', 'Second', 'Third', 'Fourth'],
-					fixedElements: '.topnav',
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-				});
+	<!-- This following line is optional. Only necessary if you use the option css3:false and you want to use other easing effects rather than "linear", "swing" or "easeInOutCubic". -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/jquery.easings.min.js"></script>
+
+	<!-- This following line is only necessary in the case of using the option `scrollOverflow:true` -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js"></script>
+	<script>
+		//fullpage.js
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+				navigation: true,
+				navigationPosition: 'right',
+				navigationTooltips: ['First', 'Second', 'Third', 'Fourth'],
+				fixedElements: '.topnav',
+
 			});
-		</script>
-		<script>
-			//particle.js
-			var canvas = document.getElementById("canvas"),
-				ctx = canvas.getContext("2d");
+		});
+	</script>
+<!--particle.js-->
+<script type="text/javascript" src="/js/particle.js"></script>
 
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
+</body>
 
-			var stars = [], // Array that contains the stars
-				FPS = 60, // Frames per second
-				x = 125, // Number of stars
-				mouse = {
-					x: 0,
-					y: 0
-				}; // mouse location
-
-			// Push stars to array
-
-			for (var i = 0; i < x; i++) {
-				stars.push({
-					x: Math.random() * canvas.width,
-					y: Math.random() * canvas.height,
-					radius: Math.random() * 1 + 1,
-					vx: Math.floor(Math.random() * 50) - 25,
-					vy: Math.floor(Math.random() * 50) - 25
-				});
-			}
-
-			// Draw the scene
-
-			function draw() {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-				ctx.globalCompositeOperation = "lighter";
-
-				for (var i = 0, x = stars.length; i < x; i++) {
-					var s = stars[i];
-					//star circle color
-					ctx.fillStyle = "#81ecec";
-					ctx.beginPath();
-					ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
-					ctx.fill();
-					ctx.fillStyle = "black";
-					ctx.stroke();
-				}
-
-				ctx.beginPath();
-				for (var i = 0, x = stars.length; i < x; i++) {
-					var starI = stars[i];
-					ctx.moveTo(starI.x, starI.y);
-					if (distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
-					for (var j = 0, x = stars.length; j < x; j++) {
-						var starII = stars[j];
-						if (distance(starI, starII) < 150) {
-							//ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
-							ctx.lineTo(starII.x, starII.y);
-						}
-					}
-				}
-				ctx.lineWidth = 0.2;
-				//lines color
-				ctx.strokeStyle = "#0984e3";
-				ctx.stroke();
-			}
-
-			function distance(point1, point2) {
-				var xs = 0;
-				var ys = 0;
-
-				xs = point2.x - point1.x;
-				xs = xs * xs;
-
-				ys = point2.y - point1.y;
-				ys = ys * ys;
-
-				return Math.sqrt(xs + ys);
-			}
-
-			// Update star locations
-
-			function update() {
-				for (var i = 0, x = stars.length; i < x; i++) {
-					var s = stars[i];
-
-					s.x += s.vx / FPS;
-					s.y += s.vy / FPS;
-
-					if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
-					if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
-				}
-			}
-
-			canvas.addEventListener("mousemove", function(e) {
-				mouse.x = e.clientX;
-				mouse.y = e.clientY;
-			});
-
-			// Update and draw
-
-			function tick() {
-				draw();
-				update();
-				requestAnimationFrame(tick);
-			}
-
-			tick();
-		</script>
-	</body>
-
-	</html>
+</html>

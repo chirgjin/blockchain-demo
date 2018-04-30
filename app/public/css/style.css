@@ -1,0 +1,133 @@
+  /* Basic Style
+* --------------------------------------- */
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Antic Slab", serif;
+  }
+  /* Lazy Load */
+  img {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+  img[data-src] {
+    opacity: 0;
+  }
+
+  #fp-nav ul li a span,
+  .fp-slidesNav ul li a span {
+    background: #fff;
+  }
+
+  canvas {
+    width: 100%;
+  }
+  a {
+    color: #ea454b;
+  }
+
+
+  /* Backgrounds will cover all the section
+* --------------------------------------- */
+
+  #section0,
+  #section1,
+  #section2,
+  #section3 {
+      background: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+  /* Defining each section background and styles
+* --------------------------------------- */
+
+  #section0 {
+      background: #fff;
+    background-size: cover;
+  }
+
+  #section1 {
+      background: #fff;
+    background-size: cover;
+    background-position-y: -104px;
+  }
+
+  #section2 {
+    padding: 6% 0 0 0;
+  }
+
+  #section2 h1 {
+    color: #000;
+  }
+
+  #section3 {
+
+  }
+
+  #heading1 {
+    overflow: hidden;
+    position: absolute;
+    z-index: 9999;
+    width: 50%;
+    top: 27%;
+    left: 28%;
+    font-size: 8em;
+    font-weight: 400;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-shadow: 0 0 3px #ea454b;
+  }
+
+  /*Adding background for the slides
+* ---------------------------------------
+#slide1{
+background-image: url(imgs/bg2.jpg);
+padding: 6% 0 0 0;
+}
+#slide2{
+background-image: url(imgs/bg5.jpg);
+padding: 6% 0 0 0;
+}*/
+
+  .topnav {
+         overflow: hidden;
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        color: #fff;
+        background-color: #ee6e73;
+        width: 100%;
+        height: 56px;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+             font-size: 20px;
+             font-weight: 500;
+             color: #fff;
+  }
+
+  .topnav a:hover {
+    background-color: #ea454b;
+    color: whitesmoke;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .header-right {
+    float: right;
+  }
+  .header {
+            color: #ee6e73;
+            font-weight: 300;
+          }
