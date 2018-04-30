@@ -6,7 +6,7 @@ class BlockChain {
     constructor (id,copy=0) {
         this.blocks = [];
         this.id     = id;
-        
+
         if(!copy) {
             let b = new block(1,null,"00000000000000",17862945);
 
@@ -56,6 +56,7 @@ class BlockChain {
 
         this.blocks.push(bl);
 
+        console.log(bl);
         return bl;
     }
 
